@@ -85,13 +85,13 @@ In the './code/functions.py', lines #185 through #242 in the 'process_image()' f
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I did the curvature calculation in lines #258 through #274 in my code in `./code/functions.py`. And the position of the center is calculated in lines #298 through #300 in './code/functions.py'.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
 I implemented this step in lines #113 through #376 in my code in `./code/functions.py` in the function `process_image()`.  Here is an example of my result on a test image:
 
-![alt text][poly]
+![alt text][result]
 
 ---
 
