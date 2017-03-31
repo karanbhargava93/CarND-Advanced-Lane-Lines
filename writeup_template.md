@@ -13,7 +13,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./output_images/undistort_output.png "Undistorted"
+[camera_calib]: ./output_images/camera_calib.jpeg "Undistorted"
 [image2]: ./test_images/test1.jpg "Road Transformed"
 [image3]: ./examples/binary_combo_example.jpg "Binary Example"
 [image4]: ./examples/warped_straight_lines.jpg "Warp Example"
@@ -29,6 +29,7 @@ The goals / steps of this project are the following:
 
 The code for the calibration is given in the camera_cal/cal_script , it saves the parameters into a pickle file for accessing it later. OpenCV functions were used to calculate the correct camera matrix and distortion coefficients using the calibration chessboard images provided in the repository. The distortion matrix was used to un-distort one of the calibration images provided as a demonstration that the calibration is correct. Example of undistorted calibration image is given below.
 
+![alt text][camera_calib]
 
 
 
