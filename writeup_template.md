@@ -59,23 +59,22 @@ src= np.float32([[540,  400],
                  [210,  580],
                  [1050, 580],
                  [690,  400]])
-dst = np.float32(
-    [[(img_size[0] / 4), 0],
-    [(img_size[0] / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), 0]])
+dst = np.float32(   [[ 200. ,   0.],
+        					 [ 200. , 600.],
+        					 [ 1080. , 600.],
+        					 [ 1080. ,   0.]])
 
 ```
 This resulted in the following source and destination points:
 
 | Source        | Destination   | 
 |:-------------:|:-------------:| 
-| 540, 400      | 303, 0        | 
-| 210, 580      | 303, 628      |
-| 1050, 580     | 909, 628      |
-| 690, 400      | 909, 0        |
+| 540, 400      | 200, 0        | 
+| 210, 580      | 200, 600      |
+| 1050, 580     | 1080, 600     |
+| 690, 400      | 1080, 0       |
 
-I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image. Here is an example of the case where the road curves away.
+I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image. Here is an example of the case where the road curves away. I experimented with the points and tried to keep the lanes at x~300 and 1000 as suggested by the reviewer.
 
 ![alt text][warped]
 
