@@ -91,7 +91,7 @@ I did the curvature calculation in lines #258 through #274 in my code in `./code
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines #113 through #376 in my code in `./code/functions.py` in the function `process_image()`.  Here is an example of my result on a test image:
+I implemented this step in lines #113 through #376 in my code in `./code/functions.py` in the function `process_image()`. I have a moving average filter implemented to smoothen the jittering and to avoid false positives. After I detect the frames I ensure that it has a certain range of road width and if not then I discard it and use the previous values only. Here is an example of my result on a test image:
 
 ![alt text][result]
 
