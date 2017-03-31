@@ -23,6 +23,7 @@ The goals / steps of this project are the following:
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 ###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
+OpenCV functions were used to calculate the correct camera matrix and distortion coefficients using the calibration chessboard images provided in the repository. The distortion matrix was used to un-distort one of the calibration images provided as a demonstration that the calibration is correct. Example of undistorted calibration image is given below.
 
 ---
 ###Writeup / README
