@@ -109,4 +109,4 @@ Here's a [link to my video result](./output_video.mp4)
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 The major problem in this particular pipeline is that its very dependent on how we set the thresholds. This tuning took a fair bit of time. Moreover, these tuned parameters will have to be changed depending on the video frame. So some sort of adaptive tuning of the thresholds is needed. This pipeline doesn't perform upto the mark on the challenge video majorly because of its inability to adjust threholds wherever needed. Another solution for the same would be to train a neural network which would process the image for the lane lines and give us the curvature and the deviation from the center of the lane.
-
+ 
