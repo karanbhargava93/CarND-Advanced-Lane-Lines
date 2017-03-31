@@ -61,8 +61,8 @@ class Line():
         thresh = 10
         theta = 0.25
         threshpts = 10
-        widthmin = 2 #3.7 optimal
-        widthmax = 3
+        widthmin = 3.5 #3.7 optimal
+        widthmax = 3.9
         
         if ((self.first_frame == True) ):
             
@@ -155,10 +155,10 @@ class Line():
         #                     [((img_size[0] * 5 / 6) + 60 + s), img_size[1]],
         #                     [(img_size[0] / 2 + 55 + l), img_size[1] / 2 + 100]])
 
-        dst = np.float32(   [[(img_size[0] / 4), 0],
-                            [(img_size[0] / 4), img_size[1]],
-                            [(img_size[0] * 3 / 4), img_size[1]],
-                            [(img_size[0] * 3 / 4), 0]])
+        dst = np.float32(   [[ 200. ,   0.],
+        					 [ 200. , 600.],
+        					 [ 1080. , 600.],
+        					 [ 1080. ,   0.]])
 
         # print(dst)
 
@@ -166,9 +166,11 @@ class Line():
         Minv = cv2.getPerspectiveTransform(dst, src)
         warped = cv2.warpPerspective(combined, M, img_size, flags=cv2.INTER_LINEAR)
 
+        # plt.imshow(warped, cmap = 'gray')
+        
         # # Plot the result
         # f, (ax1, ax2) = plt.subplots(1, 2) #, figsize=(24, 9))
-        # f.tight_layout()
+        # # f.tight_layout()
         # ax1.imshow(combined, cmap = 'gray')
         # ax1.plot(src[0,0], src[0,1], '.')
         # ax1.plot(src[1,0], src[1,1], '.')
@@ -186,7 +188,7 @@ class Line():
 
         # window settings
         window_width = 50 
-        window_height = 80 # Break image into 9 vertical layers since image height is 720
+        window_height = 60 # Break image into 10 vertical layers since image height is 600
         margin = 50 # How much to slide left and right for searching
 
         window_centroids = find_window_centroids(warped, window_width, window_height, margin)
@@ -219,19 +221,19 @@ class Line():
             output = np.array(cv2.merge((warped,warped,warped)),np.uint8)
 
 
-        y = np.linspace(int(window_height/2), gray.shape[0]-int(window_height/2), num = 7)
+        y = np.linspace(int(window_height/2), gray.shape[0]-int(window_height/2), num = 10)
         y = y[::-1]
         window_centroids = np.array(window_centroids)
         xl = np.array(window_centroids[:,0])
         xr = np.array(window_centroids[:,1])
 
-        # Display the final results
-        warpedimg = cv2.warpPerspective(img, M, img_size, flags=cv2.INTER_LINEAR)
+        # # Display the final results
+        # warpedimg = cv2.warpPerspective(img, M, img_size, flags=cv2.INTER_LINEAR)
         # plt.imshow(warped, cmap='gray')
         # #plt.plot(xl, y, '.', markersize = 50)
         # plt.title('window fitting results')
 
-        #plt.show()
+        # plt.show()
 
         # Fit a second order polynomial to pixel positions in each fake lane line
 
@@ -246,11 +248,13 @@ class Line():
         # plt.imshow(warped, cmap = 'gray')
         # plt.plot(xl, y, 'o', color='red', markersize=mark_size)
         # plt.plot(xr, y, 'o', color='blue', markersize=mark_size)
-        # plt.xlim(0, 1280)
-        # plt.ylim(0, 720)
+        # # plt.xlim(0, 1280)
+        # # plt.ylim(0, 720)
         # plt.plot(left_fitx, y, color='yellow', linewidth=3)
         # plt.plot(right_fitx, y, color='yellow', linewidth=3)
-        # plt.gca().invert_yaxis() # to visualize as we do the images
+        # # plt.gca().invert_yaxis() # to visualize as we do the images
+
+        # plt.show()
 
 
         # Curvature estimation
@@ -364,6 +368,14 @@ class Line():
 
         # plt.show()
         cv2.destroyAllWindows()
+
+        # plt.figure()
+        # # plt.subplot(121)
+        # plt.imshow(result)
+
+        # # plt.subplot(122)
+        # # plt.imshow(undistorted_img)
+        # plt.show()
 
         return result
 
