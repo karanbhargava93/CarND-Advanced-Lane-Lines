@@ -59,10 +59,10 @@ src= np.float32([[540,  400],
                  [210,  580],
                  [1050, 580],
                  [690,  400]])
-dst = np.float32(   [[ 200. ,   0.],
-        					 [ 200. , 600.],
-        					 [ 1080. , 600.],
-        					 [ 1080. ,   0.]])
+dst = np.float32([[ 200. ,   0.],
+                  [ 200. , 600.],
+                  [ 1080. , 600.],
+                  [ 1080. ,   0.]])
 
 ```
 This resulted in the following source and destination points:
