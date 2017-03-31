@@ -18,8 +18,8 @@ The goals / steps of this project are the following:
 [undist_img]: ./output_images/undistorted.jpeg "Undistorted Image in Pipeline"
 [threshold]: ./output_images/threshold.jpeg "Threshold the image to find lane lines"
 [warped]: ./output_images/warped.jpeg "Birds Eye View"
-[image6]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
+[result]: ./output_images/result.jpeg "Output"
+[video1]: ./output_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -86,25 +86,25 @@ Then I did some other stuff and fit my lane lines with a 2nd order polynomial ki
 
 I did this in lines # through # in my code in `my_other_file.py`
 
-####6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
+#### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+I implemented this step in lines #113 through #376 in my code in `./code/functions.py` in the function `process_image()`.  Here is an example of my result on a test image:
 
-![alt text][image6]
-
----
-
-###Pipeline (video)
-
-####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
-
-Here's a [link to my video result](./project_video.mp4)
+![alt text][result]
 
 ---
 
-###Discussion
+### Pipeline (video)
 
-####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+Here's a [link to my video result](./output_video.mp4)
+
+---
+
+### Discussion
+
+#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+
+The major problem in this particular pipeline is that its very dependent on how we set the thresholds. This tuning took a fair bit of time. Moreover, these tuned parameters will have to be changed depending on the video frame. So some sort of adaptive tuning of the thresholds is needed. This pipeline doesn't perform upto the mark on the challenge video majorly because of its inability to adjust threholds wherever needed. Another solution for the same would be to train a neural network which would process the image for the lane lines and give us the curvature and the deviation from the center of the lane.
 
