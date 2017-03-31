@@ -19,6 +19,7 @@ The goals / steps of this project are the following:
 [threshold]: ./output_images/threshold.jpeg "Threshold the image to find lane lines"
 [warped]: ./output_images/warped.jpeg "Birds Eye View"
 [result]: ./output_images/result.jpeg "Output"
+[poly]: ./output_images/poly.jpeg "Curve fitting"
 [video1]: ./output_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -78,11 +79,11 @@ I verified that my perspective transform was working as expected by drawing the 
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+In the './code/functions.py', lines #185 through #242 in the 'process_image()' function identify the location of the centroids of the window. After this I fitted the (x,y) coordinates of the left and right lanes. The identified lanes and the fitted second order polynomial is shown in the image below.
 
-![alt text][image5]
+![alt text][poly]
 
-####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+#### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
 I did this in lines # through # in my code in `my_other_file.py`
 
@@ -90,7 +91,7 @@ I did this in lines # through # in my code in `my_other_file.py`
 
 I implemented this step in lines #113 through #376 in my code in `./code/functions.py` in the function `process_image()`.  Here is an example of my result on a test image:
 
-![alt text][result]
+![alt text][poly]
 
 ---
 
